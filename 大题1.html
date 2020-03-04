@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = '858726374715323552943982';
+        var json = {};
+        for (var i = 0; i < str.length; i++) {
+            if (json[str[i]]) {
+                json[str[i]]++;
+
+            } else {
+                json[str[i]] = 1
+            }
+        };
+        console.log(json);
+        var max = 0;
+        var name;
+        var arr = [];
+        for (key in json) {
+            arr.push(key);
+            if (json[key] > max) {
+                max = json[key]
+                name = key;
+            }
+        }
+        //出现最多的是2  4次
+        console.log(max);
+        console.log(name);
+        //遍历对象得到的是一个json键值对,每个字母都相当于一个键,值是重复的次数,那么就保证了键不是重复的,所以再将键放入数组中就可以了
+        arr = arr.toString()
+        console.log(arr);
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="margin-bottom: 15px;" id="box">
+        <input type="text" id="username" placeholder="请输入姓名">
+        <input type="text" id="sex" placeholder="请输入性别">
+        <input type="text" id="age" placeholder="请输入年龄">
+        <input type="button" value="提交" id="btn">
+    </div>
+    <table border="1" width="540">
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody id="td">
+
+        </tbody>
+    </table>
+    <script>
+        var arr = [];
+        if (localStorage.getItem('sj') != null) {
+            arr = localStorage.getItem('sj');
+            arr = JSON.parse(arr);
+            for (var i = 0; i < arr.length; i++) {
+                var tr = document.createElement('tr');
+                tr.innerHTML += '<td>' + arr[i].name + '</td><td>' + arr[i].sex + '</td><td>' + arr[i].age + '</td><td>删除</td>';
+
+                document.getElementById('td').appendChild(tr);
+            }
+        }
+
+
+        var a = document.getElementById('username')
+
+        //添加
+        btn.onclick = function () {
+            var nameval = a.value;
+            var sexval = document.getElementById('sex').value;
+            var ageval = document.getElementById('age').value;
+
+            console.log(nameval);
+            var obj = {
+                name: nameval,
+                sex: sexval,
+                age: ageval,
+
+            }
+            var tr = document.createElement('tr');
+            tr.innerHTML += '<td>' + obj.name + '</td><td>' + obj.sex + '</td><td>' + obj.age + '</td><td>删除</td>';
+            document.getElementById('td').appendChild(tr);
+
+
+            arr.push(obj);
+
+            var str = JSON.stringify(arr);
+            localStorage.setItem('sj', str);
+        }
+        //删除
+        // var del = document.getElementsByTagName('del');
+        // del.onclick 
+    </script>
+
+
+</body>
+
+</html>

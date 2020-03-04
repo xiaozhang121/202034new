@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">
+        <input type="button" value="反选" id="btn">
+        <input type="checkbox" id="all">
+        <ul>
+            <li>
+                <input type="checkbox" class="aa">张三
+            </li>
+            <li>
+                <input type="checkbox" class="aa">张三
+            </li>
+            <li>
+                <input type="checkbox" class="aa">张三
+            </li>
+        </ul>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script>
+        $('#all').on('click', function () {
+            $('li>input').prop('checked', true);
+        });
+        $('li>input').on('click', function () {
+            if ($('li>input:checked').length == $('li>input').length) {
+                $('#all').prop('checked', true);
+            } else {
+                $('#all').prop('checked', false);
+            }
+        });
+        $('#btn').on('click', function () {
+            // if ($('#all').prop('checked', false)) {
+            //     $('#all').prop('checked', true)
+            // }
+            if ($('#all').prop('checked') === true) {
+                $('#all').prop('checked', false)
+            }
+            else if ($('#all').prop('checked') === false) {
+                $('#all').prop('checked', true)
+            }
+            if ($('li>input').prop('checked') === true) {
+                $('li>input').prop('checked', false)
+            } else if ($('li>input').prop('checked') === false) {
+                $('li>input').prop('checked', true);
+            }
+        })
+
+
+
+
+    </script>
+
+</body>
+
+</html>
